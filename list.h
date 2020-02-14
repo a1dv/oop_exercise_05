@@ -201,7 +201,7 @@ namespace containers {
 
     template<class T>
     typename list<T>::forward_iterator& list<T>::forward_iterator::operator++() {
-        if (it_ptr == nullptr) throw std::logic_error ("out of list borders");
+        if (it_ptr == nullptr) throw std::logic_error ("Выход за границу списка");
         *this = it_ptr->next();
         return *this;
     }
@@ -231,7 +231,7 @@ namespace containers {
     template<class T>
     T& list<T>::operator[](size_t index)  {
         if (index < 0 || index >= size) {
-            throw std::out_of_range("out of list's borders");
+            throw std::out_of_range("Выход за границу списка");
         }
         forward_iterator it = this->begin();
         for (size_t i = 0; i < index; i++) {
